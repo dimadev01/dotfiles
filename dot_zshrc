@@ -1,0 +1,19 @@
+export PATH=/Users/dmitriy.mironov/.meteor:$PATH
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/dmitriy.mironov/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+# Navigation shortcuts
+alias ls='eza'
+alias ll='eza -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+   
+# Git shortcuts
+alias gs='git status'
+alias gpl='git pull'
+
+# Project shortcut (to quickly navigate to your project directory)
+alias cdh='cd ~/Healthee'
