@@ -34,7 +34,13 @@ bindkey -e   # Emacs-style (default)
 # bindkey -v # Vim-style
 
 ### 5) Common quality-of-life
-alias ll='ls -lah'
-alias la='ls -A'
+alias ll='eza -lah'
+alias la='eza -A'
 alias l='ls -CF'
+
+alias gs='git status'
+alias gplom='git pull origin main'
+alias gpl='git pull'
+alias gcm='git checkout main'
+alias gcd='git chekcout dev'
 
