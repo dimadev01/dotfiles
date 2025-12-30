@@ -1,19 +1,40 @@
-export PATH=/Users/dmitriy.mironov/.meteor:$PATH
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/dmitriy.mironov/.docker/completions $fpath)
+# ~/.zshrc  — minimal zsh + Starship
+
+### 1) Completion (zsh’s advanced completion)
 autoload -Uz compinit
-compinit
-# End of Docker CLI completions
+# optional: speed up by caching completion dump
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 
-# Navigation shortcuts
-alias ls='eza'
-alias ll='eza -la'
-alias ..='cd ..'
-alias ...='cd ../..'
-   
-# Git shortcuts
-alias gs='git status'
-alias gpl='git pull'
+# useful completion defaults
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# Project shortcut (to quickly navigate to your project directory)
-alias cdh='cd ~/Healthee'
+### 2) History (sane defaults)
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
+setopt extended_history
+
+### 3) Navigation / shell behavior
+setopt autocd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt interactive_comments
+
+# (optional safety) don’t error on unmatched globs: rm *.nomatch -> literal
+setopt no_nomatch
+
+### 4) Keybindings (pick one)
+bindkey -e   # Emacs-style (default)
+# bindkey -v # Vim-style
+
+### 5) Common quality-of-life
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls -CF'
+
