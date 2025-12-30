@@ -7,3 +7,5 @@
 [user]
 	name = Dmitriy Mironov
 	email = dmitriy.mironov@healthee.com
+[core]
+	editor = nvim

@@ -43,4 +43,6 @@ alias gplom='git pull origin main'
 alias gpl='git pull'
 alias gcm='git checkout main'
 alias gcd='git chekcout dev'
+alias ga='git add .'
+alias gc='git commit'
 
