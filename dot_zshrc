@@ -38,6 +38,7 @@ alias ll='eza -lah'
 alias la='eza -A'
 alias l='ls -CF'
 
+### 6) Git
 alias gs='git status'
 alias gplom='git pull origin main'
 alias gpl='git pull'
@@ -45,4 +46,11 @@ alias gcm='git checkout main'
 alias gcd='git chekcout dev'
 alias ga='git add .'
 alias gc='git commit'
+alias gp='git push'
+
+### 7) Starship prompt (prompt only; doesn’t affect completion/history)
+# Install starship separately, then:
+#   eval "$(starship init zsh)"
+# Note: using `command` avoids alias/function shadowing.
+eval "$(command starship init zsh)"
 
