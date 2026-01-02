@@ -1,14 +1,20 @@
-# ~/.zshrc  — minimal zsh + Starship
+# ~/.zshrc  — minimal zsh
+
+# Healthee CLI completions
+fpath=(~/.zsh/completions $fpath)
+export PATH="/Users/dmitriy.mironov/Healthee/healthee-cli:$PATH"
+alias hcli="/Users/dmitriy.mironov/Healthee/healthee-cli/healthee-cli"
 
 ### 1) Completion (zsh’s advanced completion)
-autoload -Uz compinit
-# optional: speed up by caching completion dump
-compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
-
 # useful completion defaults
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+autoload -Uz compinit
+# optional: speed up by caching completion dump
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+
 
 ### 2) History (sane defaults)
 HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
@@ -41,9 +47,10 @@ alias l='ls -CF'
 ### 6) Git
 alias gs='git status'
 alias gplom='git pull origin main'
+alias gplod='git pull origin dev'
 alias gpl='git pull'
 alias gcm='git checkout main'
-alias gcd='git chekcout dev'
+alias gcd='git checkout dev'
 alias ga='git add .'
 alias gc='git commit'
 alias gp='git push'
@@ -53,4 +60,9 @@ alias gp='git push'
 #   eval "$(starship init zsh)"
 # Note: using `command` avoids alias/function shadowing.
 eval "$(command starship init zsh)"
+
+### 8) Node Version Manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
